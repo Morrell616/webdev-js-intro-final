@@ -57,18 +57,22 @@ function incrementAttempts() {
 }
 
 function restartGame()        {
+
+    //It didnt work here because I was redeclaring the same values again with let. 
+    // once I removed let and just set the same variable back the reset button worked properly.
     const number = Math.floor(Math.random() * 100) +1;
-    let userGuess = null;
-    let theGuessHistory =[];// to show past guesses use this variable
-    let guessMessage = ""//put guess message here
-    let attempts = 0;
-    let gameOver = false;   
+    userGuess = null;
+    theGuessHistory =[];// to show past guesses use this variable
+    guessMessage = ""//put guess message here
+    attempts = 0;
+    gameOver = false;   
     
     restartBtn.disabled = true;
     submissionBtn.disabled = false;
-               }
-    render();
 
+    render();
+               }
+   
  
 
 
@@ -91,5 +95,9 @@ function render () {
             firstGuess(); 
             incrementAttempts(); 
             render(); } });
-     restartBtn.addEventListener("click" , restartGame);
+        
+restartBtn.addEventListener("click" , restartGame);
   
+     /* 1/19/2025 restart button is clicked but game is not reseting. still need to work on the reset function and
+        get it to work properly to play the game again */ 
+     
